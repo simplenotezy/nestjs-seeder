@@ -1,6 +1,6 @@
 {
-  "name": "nestjs-seeder",
-  "version": "0.3.2",
+  "name": "nestjs-seeder-v2",
+  "version": "0.4.2",
   "description": "An extension library for NestJS to perform seeding.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -12,12 +12,16 @@
     "prebuild": "rimraf dist",
     "dev": "npm run prebuild && tsc -w"
   },
+  "files": [
+    "dist",
+    "lib"
+  ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/edwardanthony/nestjs-seeder"
+    "url": "git+https://github.com/simplenotezy/nestjs-seeder"
   },
-  "bugs": "https://github.com/edwardanthony/nestjs-seeder/issues",
-  "homepage": "https://github.com/edwardanthony/nestjs-seeder#readme",
+  "bugs": "https://github.com/simplenotezy/nestjs-seeder/issues",
+  "homepage": "https://github.com/simplenotezy/nestjs-seeder#readme",
   "keywords": [
     "seeding",
     "seeder",
@@ -25,7 +29,13 @@
     "nestjs",
     "seeder"
   ],
-  "author": "Edward Anthony <edwardanthony@fastmail.com>",
+  "author": "Mattias Siø Fjellvang <mattiassiofjellvang@gmail.com>",
+  "contributors": [
+    {
+      "name": "Edward Anthony",
+      "email": "edwardanthony@fastmail.com"
+    }
+  ],
   "license": "MIT",
   "peerDependencies": {
     "@faker-js/faker": "^8.0.0"
