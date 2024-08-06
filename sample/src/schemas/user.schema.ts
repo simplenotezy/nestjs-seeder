@@ -38,7 +38,7 @@ export class User extends Document {
 
   // If you pass predefined values to the `generate` function, you will be
   // able to access it in the context.
-  @Factory((faker, ctx) => `${faker.location.streetAddress()} ${ctx.zipCode}`)
+  @Factory((faker, ctx, index) => `${faker.location.streetAddress()} ${ctx.zipCode} ${index}`)
   @Prop({ required: true })
   address: string;
 }
