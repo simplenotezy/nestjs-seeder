@@ -181,10 +181,18 @@ With the scripts integrated in the `package.json` file, now you could run 2 diff
 ```typescript
 @Schema()
 export class User extends Document {
+  // Generates a consistent UUID based on the index of the generated data.
+  // Useful during development when you want to have a consistent ID.
+  @Factory((_, __, index) => uuidv5(index.toString(), this.name))
+  @Prop({ required: true })
+  id: string;
+
   @Factory((faker) => faker.helpers.arrayElement(["male", "female"]))
   @Prop({ required: true })
   gender: string;
 
+  // Using the context, you could access the previously generated value.
+  // generates a first name based on the gender.
   @Factory((faker, ctx) => faker.person.firstName(ctx.gender))
   @Prop({ required: true })
   firstName: string;
