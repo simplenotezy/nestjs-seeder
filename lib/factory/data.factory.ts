@@ -22,7 +22,7 @@ export class DataFactory {
       ): Record<string, FactoryValue>[] => {
         const ret = Array<Record<string, FactoryValue>>();
         for (let i = 0; i < count; i++) {
-          ret.push(this.generate(properties, values));
+          ret.push(this.generate(properties, values, i));
         }
         return ret;
       },
@@ -31,11 +31,12 @@ export class DataFactory {
 
   private static generate(
     properties: PropertyMetadata[],
-    values: Record<string, any>
+    values: Record<string, any>,
+    index: number
   ): Record<string, FactoryValue> {
     const ctx = { ...values };
     return properties.reduce(
-      (r, p, index) => ({
+      (r, p) => ({
         [p.propertyKey]: (ctx[p.propertyKey] =
           typeof p.arg === "function" ? p.arg(faker, ctx, index) : p.arg),
         ...r,
